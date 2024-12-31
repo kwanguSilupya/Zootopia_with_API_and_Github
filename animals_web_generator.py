@@ -19,7 +19,8 @@ if not API_KEY:
 if not BASE_URL:
     raise ValueError("BASE_URL is not set. Please check your .env file.")
 
-def fetch_data(animal_name):
+
+def fetch_animal_data(animal_name):
     """
     Fetches the animal data for the specified animal name.
 
@@ -31,28 +32,37 @@ def fetch_data(animal_name):
     """
     try:
         logging.info(f"Fetching data for animal: {animal_name}")
-        response = requests.get(
-            f"{BASE_URL}/animals",
-            params={"name": animal_name},
-            headers={"Authorization": f"Bearer {API_KEY}"}
-        )
-        response.raise_for_status()
-        animals = response.json().get('animals', [])
-        logging.info(f"Data fetched successfully: {len(animals)} records found.")
-        return animals
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Error fetching data: {e}")
+        headers = {"X-Api-Key": API_KEY}
+        params = {"name": animal_name}
+
+        # Make the API request
+        response = requests.get(BASE_URL, headers=headers, params=params)
+        response.raise_for_status()  # Raise an error for HTTP issues
+
+        animal_data = response.json()  # Parse JSON response
+        if animal_data:  # Check if the data is non-empty
+            logging.info(f"Data fetched successfully: {len(animal_data)} record(s) found.")
+            return animal_data
+        else:
+            logging.warning("No data found for the specified animal.")
+            return []
+    except requests.exceptions.HTTPError as http_err:
+        logging.error(f"HTTP error occurred: {http_err}")
+        return []
+    except requests.exceptions.RequestException as req_err:
+        logging.error(f"Request error occurred: {req_err}")
         return []
 
+
 if __name__ == "__main__":
-    # Example usage of fetch_data
-    animal_name = input("Enter the name of the animal you want to fetch data for: ").strip()
-    if animal_name:
-        data = fetch_data(animal_name)
-        if data:
+    # Example usage of fetch_animal_data
+    animal_name_input = input("Enter the name of the animal you want to fetch data for: ").strip()
+    if animal_name_input:
+        fetched_data = fetch_animal_data(animal_name_input)
+        if fetched_data:
             print("Fetched animal data:")
-            for animal in data:
-                print(animal)
+            for animal in fetched_data:
+                print(animal)  # Customize to display relevant data fields
         else:
             print("No data found or an error occurred.")
     else:
