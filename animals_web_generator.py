@@ -2,6 +2,7 @@ import os
 import requests
 from dotenv import load_dotenv
 import logging
+from jinja2 import Environment, FileSystemLoader
 
 # Load environment variables from .env file
 load_dotenv()
@@ -54,15 +55,34 @@ def fetch_animal_data(animal_name):
         return []
 
 
+def generate_html(fetched_data):
+    """
+    Generates HTML file from the fetched data using Jinja2 template.
+
+    Args:
+        fetched_data (list): The data to display in the HTML file.
+    """
+    # Create a Jinja2 environment and load templates from the current directory
+    env = Environment(loader=FileSystemLoader('.'))
+    template = env.get_template('animals_template.html')
+
+    # Render the template with fetched data
+    html_content = template.render(animals=fetched_data)
+
+    # Save the rendered HTML to a file
+    with open("animal_data.html", "w") as f:
+        f.write(html_content)
+
+    print("HTML file generated successfully!")
+
+
 if __name__ == "__main__":
     # Example usage of fetch_animal_data
     animal_name_input = input("Enter the name of the animal you want to fetch data for: ").strip()
     if animal_name_input:
         fetched_data = fetch_animal_data(animal_name_input)
         if fetched_data:
-            print("Fetched animal data:")
-            for animal in fetched_data:
-                print(animal)  # Customize to display relevant data fields
+            generate_html(fetched_data)  # Generate the HTML with the fetched data
         else:
             print("No data found or an error occurred.")
     else:
