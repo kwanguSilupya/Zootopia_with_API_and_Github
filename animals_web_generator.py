@@ -55,19 +55,19 @@ def fetch_animal_data(animal_name):
         return []
 
 
-def generate_html(fetched_data):
+def generate_html(data_to_display):
     """
     Generates HTML file from the fetched data using Jinja2 template.
 
     Args:
-        fetched_data (list): The data to display in the HTML file.
+        data_to_display (list): The data to display in the HTML file.
     """
     # Create a Jinja2 environment and load templates from the current directory
     env = Environment(loader=FileSystemLoader('.'))
     template = env.get_template('animals_template.html')
 
-    # Render the template with fetched data
-    html_content = template.render(animals=fetched_data)
+    # Render the template with the provided data
+    html_content = template.render(animals=data_to_display)
 
     # Save the rendered HTML to a file
     with open("animal_data.html", "w") as f:
