@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c24006fd-a3d4-4cc7-9f3e-c478a3940304" name="Changes" comment="added README.md">
+    <list default="true" id="c24006fd-a3d4-4cc7-9f3e-c478a3940304" name="Changes" comment="updated requirements.txt and updated the animals_web_generator.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,13 +38,16 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2qxmd972ABZPjZrrT3jkT4x8X6n" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Python.animals_web_generator.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
@@ -116,13 +119,32 @@
       <option name="project" value="LOCAL" />
       <updated>1735664798879</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="reedited the code and made the necessary changes inorder to generate the html successfully">
+      <option name="closed" value="true" />
+      <created>1735938965283</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735938965283</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updated requirements.txt and updated the animals_web_generator.py">
+      <option name="closed" value="true" />
+      <created>1735939337682</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1735939337682</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added .env file" />
     <MESSAGE value="added requirements.txt, animals.html, animals_data.json, my API KEY and base URL" />
     <MESSAGE value="added README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="added README.md" />
+    <MESSAGE value="reedited the code and made the necessary changes inorder to generate the html successfully" />
+    <MESSAGE value="updated requirements.txt and updated the animals_web_generator.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated requirements.txt and updated the animals_web_generator.py" />
   </component>
 </project>
